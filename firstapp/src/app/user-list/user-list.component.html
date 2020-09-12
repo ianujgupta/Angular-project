@@ -1,0 +1,26 @@
+<p>user-list works!</p>
+
+
+<div *ngFor= "let user of users; let i= index" >
+    <div  [ngClass]="{'eligible':isEligible(user.age),
+        'notEligible':!isEligible(user.age)}">
+    {{i+1}} {{user.name}} {{user.age}}
+    </div>
+
+    <!-- <div *ngIf = "user.age>=21" [ngStyle]="{'background-color':eligibleColor}">
+    {{i+1}} {{user.name}} {{user.age}}
+    </div>
+    <div *ngIf = "user.age<21" [ngStyle]="{'background-color':notEligibleColor}">
+    {{i+1}} {{user.name}} {{user.age}}
+    </div> -->
+</div>
+<br>
+
+<input type="text" name="inputform" ngModel #templatevariable>
+<!-- <input type="text" name="inputform" keyUp=() #templatevariable> -->
+
+value is {{templatevariable.value}} <br>
+{{500| currency:'JPY' }}<br>
+substring pipe 
+{{'new delhi'  | substring:5}}
+{{'new delhi'  | substring:6:7}}

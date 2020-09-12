@@ -1,0 +1,27 @@
+<!-- <img [src]="imgPath" >  -->
+<br>
+<!--property binding  -->
+<nav style="background-color:black;">
+<button><a [href]=links[0]>Html</a></button> &nbsp;
+<a [href]=links[1]>Css</a>&nbsp;
+<a [href]=links[2]>Js</a>
+</nav>
+<!-- interpolation -->
+<h3>my first angular app having title name is {{title}}</h3>
+about {{description}}
+<h3>User info {{users[0].name}} and {{users[0].age}}</h3>
+<h4>{{users[0].getName()}},{{users[1].getAge()}}</h4>
+<!-- event bininding -->
+<button (click)="increment()">Increment </button>
+<h2>counter variable is {{counter}}</h2>
+
+<label>username</label>
+<input [(ngModel)]="username" name="usernameinput">
+{{username}}
+
+
+<app-user-details></app-user-details>
+
+<app-user-list></app-user-list>
+
+<add-user></add-user>

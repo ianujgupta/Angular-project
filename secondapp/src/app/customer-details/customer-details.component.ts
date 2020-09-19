@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Customer} from '../model class/customer';
+import { CustomerService } from '../service/customerservice';
 
 
 @Component({
@@ -7,16 +8,20 @@ import {Customer} from '../model class/customer';
   templateUrl: './customer-details.component.html',
   styleUrls: ['./customer-details.component.css']
 })
-export class CustomerDetailsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class CustomerDetailsComponent {
+  customerService: CustomerService;
+  
+  constructor(customerService:CustomerService) { 
+    this.customerService=customerService;
   }
+customer :Customer;
 
-  customers :Customer[] = [new Customer("Mohan",2000),
-  new Customer("Sohan",3000),
-  new Customer("Rohan",4000)]
+findCustomer(form:any){
+  let data = form.value;
+  let id = data.customerId;
+  this.customer= this.customerService.findCustomerById(id);
+  console.log("inside findCustomer")
+}
 
 
 }

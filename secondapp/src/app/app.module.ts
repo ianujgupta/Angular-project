@@ -10,6 +10,7 @@ import {StringLength} from './pipes/stringlength';
 import {ReverseString} from './pipes/reversestring';
 // import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CustomerService } from './service/customerservice';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,FormsModule
   ],
-  providers: [],
+  providers: [CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

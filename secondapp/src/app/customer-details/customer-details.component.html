@@ -1,12 +1,17 @@
 <p>customer-details works!</p>
 
-<table>
-    <tr>
-    <th>customer name</th>
-    <th>balance</th>
-    </tr>
- <tr *ngFor= "let customer of customers">
-   <td >{{customer.name}}</td>
-   <td >{{customer.balance}}</td>
-</tr>
-</table>
+<form #idform=ngForm (ngSubmit)=findCustomer(idform) >
+
+   <label>customer Id</label>
+   <input type="number" name="customerId" ngModel>
+ 
+   <input type="submit" value="Search">
+</form>
+ <br>
+ 
+<div *ngIf="customer!==undefined">
+   
+   id is {{customer.id }}
+   name is {{customer.name }}
+   balance is {{customer.balance}}
+</div>

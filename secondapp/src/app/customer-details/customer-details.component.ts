@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import {Customer} from '../model class/customer';
 import { CustomerService } from '../service/customerservice';
 
@@ -19,9 +20,11 @@ customer :Customer;
 findCustomer(form:any){
   let data = form.value;
   let id = data.customerId;
-  this.customer= this.customerService.findCustomerById(id);
-  console.log("inside findCustomer")
+ let observable:Observable<Customer>= this.customerService.getCustomerById(id);
+ observable.subscribe(
+   customerArg=>{this.customer=customerArg},
+   error=>{console.log("error inside customer details component"+error.message)}
+ );
+  
 }
-
-
 }

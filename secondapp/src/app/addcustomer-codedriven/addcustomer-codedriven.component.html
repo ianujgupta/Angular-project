@@ -1,0 +1,40 @@
+<p>addcustomer-codedriven works!</p>
+
+<!--
+  ngSubmit is the event and we are hooking our addUser method to
+   this event so that on submit addUser method will get executed
+   
+   myform is a template variable, it contains formgroup 
+   and we are passing this to our method so as to process it at code(ts) side  
+-->
+
+<form [formGroup]="customerForm" (ngSubmit)="customerForm.valid && addCustomer()" >    
+ <!--
+    ngModel creates formcontrol at code side,
+    without mentioning ngModel, angular has no knowledge of this textfield -->
+    <div>
+    <label>Name</label>
+    <input type="text" formControlName="name">
+    </div>
+
+    <div *ngIf="nameCtrl.errors!==null && nameCtrl.errors.required">
+        name is required
+    </div>
+    <div>
+        <label>Balance</label>
+        <input type="number"  formControlName="balance">    
+    </div>
+
+    <div *ngIf="balanceCtrl.errors!=null && balanceCtrl.errors.required" class="error">
+       balance is required
+    </div>
+    
+    <input type="submit" value="Submit">
+</form>
+
+<div *ngIf="customer!==undefined">
+    <h3>Added Customer </h3>   
+    {{customer.id}}
+   {{customer.name}}
+   {{customer.balance}}
+   </div>
